@@ -1,55 +1,58 @@
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
-var ground;
+function preload()
+{
+ 	
+}
 
-var box1,box2,box3;
-
-var ball;
-
-
-function setup() {
-	createCanvas(600,400);
-
+function setup() 
+{
+	createCanvas(800, 700);
 
 	engine = Engine.create();
 	world = engine.world;
 
-
 	//Create the Bodies Here.
 
-	ground = new Ground(0,350,600,10);
+	ground = new Ground(600,height,1200,20)
+	D1= new Dustbin(600,680,200,20);
+	D2=new Dustbin(500,615,20,150);
+    D3=new Dustbin(700,615,20,150);
 
-	box1 = new Box(350,325,10,50);
-	box2 = new Box(380,345,50,10);
-	box3 = new Box(400,325,10,50);
+   
+	paper= new Paper (100,600,50);
 
-	ball = new Ball(100,340,20);
-	
 	Engine.run(engine);
   
 }
 
 
-function draw() {
-	
+function draw() 
+{
+  rectMode(CENTER);
+  background(0);
 
-	background(51);
-
-	ground.display();
-	
-	box1.display();
-	box2.display();
-	box3.display();
-
-	ball.display();
+  
+  
+  drawSprites();
+ paper.display();
+ ground.display();
+ D1.display();
+ D2.display();
+ D3.display();
 }
 
-function keyPressed(){
-	if(keyCode === UP_ARROW){
-		Matter.Body.applyForce(ball.bodies,ball.bodies.position,{x:60,y:-80});
+function keyPressed()
+{
+
+	if(keyCode === UP_ARROW) 
+	{
+
+   Matter.Body.applyForce(paper.body,paper.body.position,{x:400,y:-400});
+
 	}
+
 }
