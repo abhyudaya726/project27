@@ -28,12 +28,14 @@ function setup() {
 	box3 = new Box(400,325,10,50);
 
 	ball = new Ball(100,340,20);
+	
+	Engine.run(engine);
   
 }
 
 
 function draw() {
-	Engine.update(engine);
+	
 
 	background(51);
 
