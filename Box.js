@@ -1,20 +1,32 @@
-class Box{
-    constructor(x,y,lenght,height){
-
-        var options = {
-            isStatic:true,
-        }
-
-        this.bodies = Bodies.rectangle(x,y,lenght,height,options);
-        World.add(world,this.bodies);
-
-        this.l = lenght;
-        this.h = height;
+class Dustbin 
+{
+    constructor(x, y, width, height) 
+    {
+      var options = 
+      {
+          isStatic:true,
+          'restitution':0.8,
+          'friction':0.3,
+          'density':1.2
+      }
+      this.body = Bodies.rectangle(x, y, width, height, options);
+      this.width = width;
+      this.height = height;
+      
+      World.add(world, this.body);
     }
-    display(){
-        var pos = this.bodies.position;
-
-        rectMode(CENTER);
-        rect(pos.x,pos.y,this.l,this.h);
+    display()
+    {
+      var pos =this.body.position;
+      var angle = this.body.angle;
+      push();
+      translate(pos.x, pos.y);
+      rotate(angle);
+      rectMode(CENTER);
+      strokeWeight(4);
+      stroke("purple");
+      fill(255);
+      rect(0, 0, this.width, this.height);
+      pop();
     }
-}
+  };
