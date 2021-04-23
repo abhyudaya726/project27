@@ -23,7 +23,7 @@ function setup()
     D3=new Dustbin(1395,615,20,120);
 
    
-	paper= new Paper (100, 360, 20);
+	paper= new Paper (400, 600, 20);
 
   
 }
