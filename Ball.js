@@ -25,7 +25,7 @@ class Paper
     strokeWeight(4);
     stroke("blue");
     fill(255);
-    ellipse(0, 0, this.radius);
+    ellipse(0, 0, this.radius*2,this.radius*2);
     pop();
   }
 };
